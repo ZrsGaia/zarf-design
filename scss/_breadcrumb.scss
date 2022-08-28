@@ -1,0 +1,38 @@
+@use "media-query" as mq;
+
+//パンくずリスト
+.breadcrumb {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 91px;
+
+  @include mq.mq("tab") {
+    padding: 0 20px;
+  }
+
+  @include mq.mq("sp") {
+    font-size: 12px;
+    margin-top: 4px;
+    padding: 0 10px;
+  }
+
+  span {
+    &:not(:first-child) {
+      margin-left: 12px;
+
+      @include mq.mq("sp") {
+        margin-left: 2px;
+      }
+    }
+  }
+
+  a {
+    margin-right: 12px;
+
+    @include mq.mq("sp") {
+      margin-right: 3px;
+    }
+  }
+}

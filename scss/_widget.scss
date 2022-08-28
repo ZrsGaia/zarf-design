@@ -1,0 +1,114 @@
+//サイドウィジェット
+@use "variables" as var;
+@use "media-query" as mq;
+
+#secondary {
+  margin-top: 65px;
+  margin-left: 62px;
+  width: 300px;
+
+  @include mq.mq("tab") {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 63px;
+  }
+
+  @include mq.mq("sp") {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 63px;
+  }
+}
+.widget {
+  background: #fff;
+  padding: 17px 21px;
+
+  &:not(:first-child) {
+    margin-top: 63px;
+
+    @include mq.mq("sp") {
+      margin-top: 43px;
+    }
+  }
+}
+
+.widget-title {
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: var.$color-text-black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: 1px;
+  }
+}
+
+.wpost-items {
+  margin-top: 18px;
+}
+
+.wpost-item {
+  display: flex;
+
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+
+.wpost-item-img {
+  width: 100px;
+  height: 100px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.wpost-item-body {
+  padding-left: 14px;
+  width: calc(100% - 100px);
+}
+
+.wpost-item-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: (24/14);
+}
+
+.wpost-item-date {
+  margin-top: 7px;
+  font-size: 12px;
+}
+
+.wpost-categorys {
+  margin-top: 20px;
+}
+
+.wpost-category {
+  font-weight: 700;
+  padding-left: 13px;
+  position: relative;
+
+  &:not(:first-child) {
+    margin-top: 13px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 12px;
+    background: url(../img/arrow.svg) no-repeat center center / contain;
+  }
+}

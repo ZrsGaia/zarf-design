@@ -1,0 +1,148 @@
+@use "media-query" as mq;
+@use "variables" as var;
+
+.card__items {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq.mq("sp") {
+    display: block;
+  }
+}
+
+.card {
+  // カードアイテムの幅 calc(アイテム一つ当たりの幅 - アイテム間の隙間 * アイテム間の隙間数)/アイテム数
+  width: calc(50% - 24px * 1 / 2);
+  padding: 15px;
+
+  @include mq.mq("sp") {
+    width: 100%;
+  }
+
+  &:not(:nth-child(2n + 1)) {
+    margin-left: 24px;
+
+    @include mq.mq("sp") {
+      margin-left: 0;
+    }
+  }
+}
+
+.card-work {
+  border: 1px dashed var(--color-main);
+  padding: 15px;
+  transition: opacity 0.3s ease 0s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include mq.mq("pc") {
+    // カードアイテムの幅 calc(アイテム一つ当たりの幅 - アイテム間の隙間 * アイテム間の隙間数)/アイテム数
+    width: calc(33.3% - 24px * 2 / 3);
+
+    //最初のアイテム要素にはmargin-leftを適用しない
+    &:not(:nth-child(3n + 1)) {
+      margin-left: 24px;
+    }
+
+    //4つめ以降のアイテムに対しmargin-topをつける
+    &:nth-child(n + 4) {
+      margin-top: 60px;
+    }
+
+    .card__img {
+      object-fit: cover;
+    }
+  }
+
+  @include mq.mq("tab") {
+    // カードアイテムの幅 calc(アイテム一つ当たりの幅 - アイテム間の隙間 * アイテム間の隙間数)/アイテム数
+    width: calc(50% - 24px * 1 / 2);
+
+    //最初のアイテム要素にはmargin-leftを適用しない
+    &:not(:nth-child(2n + 1)) {
+      margin-left: 24px;
+    }
+
+    //3つめ以降のアイテムに対しmargin-topをつける
+    &:nth-child(n + 3) {
+      margin-top: 40px;
+    }
+  }
+
+  @include mq.mq("sp") {
+    // カードアイテムの幅 calc(アイテム一つ当たりの幅 - アイテム間の隙間 * アイテム間の隙間数)/アイテム数
+    width: 100%;
+
+    //2つめ以降のアイテムに対しmargin-topをつける
+    &:nth-child(n + 2) {
+      margin-top: 40px;
+    }
+  }
+}
+
+.card__img {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--color-main);
+    z-index: -1;
+    opacity: 0.7;
+  }
+}
+
+.card__date {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: var.$font-family-english;
+  color: var(--color-main);
+}
+
+.card__title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #fff;
+  background: var(--color-main);
+  padding: 3px 10px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3px;
+    width: 5px;
+    height: 100%;
+    background: #fff;
+  }
+}
+
+.card__text {
+  margin-top: 20px;
+
+  p {
+    margin-top: 20px;
+  }
+}
+
+.card__price {
+  font-family: var.$font-family-english;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-main);
+  margin-top: 20px;
+}
+
+.card__footer {
+  margin-top: 40px;
+  text-align: center;
+}

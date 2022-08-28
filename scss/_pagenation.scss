@@ -1,0 +1,45 @@
+@use "variables" as var;
+@use "media-query" as mq;
+
+//ぺージネーション
+.pagenation {
+  margin-top: 39px;
+  text-align: center;
+
+  @include mq.mq("sp") {
+    margin-top: 36px;
+  }
+}
+
+.page-numbers {
+  width: 40px;
+  height: 40px;
+  line-height: (24/16);
+  background: #fff;
+  border: 1px solid var.$color-text-black;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 6px 0;
+
+  &:not(:first-child) {
+    margin-left: 13px;
+  }
+
+  &.current {
+    background: var(--color-main);
+    color: #fff;
+  }
+
+  img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 12px;
+  }
+}

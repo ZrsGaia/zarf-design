@@ -1,0 +1,31 @@
+//使用する変数を指定
+
+//メインカラー
+:root {
+  --color-main: #70a2ac;
+  --color-main-red: #e15c5c;
+  --color-main-green: #a7dac5;
+  --color-main-yellow: #eac318;
+  --color-main-default: #70a2ac;
+}
+
+//disable(ボタン)
+$color-btn-disable: #888888;
+
+// GoogleFontのインポート
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap");
+
+// 英字フォント
+$font-family-english: "Orbitron", sans-serif;
+
+//日本語フォント
+$font-family-japanese: "Zen Kaku Gothic New", sans-serif;
+
+//フォントカラー(黒)
+$color-text-black: #323232;
+
+// インナー最大幅
+$layout-width-inner: 1280px;
+
+//ヘッダーの高さ(SP)
+$height-header-sp: 68px;

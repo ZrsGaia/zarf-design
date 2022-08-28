@@ -1,0 +1,20 @@
+@use "variables" as var;
+
+//マップ型変数breakpointsを定義
+$breakpoints: (
+  //スマホ用の表示
+  "sp": "screen and (max-width: 767px)",
+
+  //タブレット用の表示
+  "tab": "(min-width: 768px) and (max-width: #{var.$layout-width-inner - 1px})",
+
+  //PC用の表示
+  "pc": "(min-width: #{var.$layout-width-inner})"
+) !default;
+
+//メディアクエリ用のmixinを定義 デフォ値はsp
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

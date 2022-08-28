@@ -1,0 +1,120 @@
+// 関連記事
+@use "variables" as var;
+@use "media-query" as mq;
+
+.relation-news {
+  margin-top: 117px;
+
+  @include mq.mq("sp") {
+    margin-top: 98px;
+  }
+}
+.relation-news__title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+
+  @include mq.mq("sp") {
+    font-size: 20px;
+  }
+}
+
+.relation-news__items {
+  margin-top: 57px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+
+  @include mq.mq("sp") {
+    margin-top: 38px;
+    padding-left: 0px;
+  }
+
+  .news__item {
+    position: relative;
+    @include mq.mq("pc") {
+      width: calc(33.3% - 40px * 2 / 3);
+
+      //最初のアイテム要素にはmargin-leftを適用しない
+      &:not(:nth-child(3n + 1)) {
+        margin-left: 40px;
+      }
+
+      //4つめ以降のアイテムに対しmargin-topをつける
+      &:nth-child(n + 4) {
+        margin-top: 40px;
+      }
+    }
+
+    @include mq.mq("tab") {
+      width: calc(50% - 19px * 1 / 2);
+
+      //最初のアイテム要素にはmargin-leftを適用しない
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 19px;
+      }
+
+      //3つめ以降のアイテムに対しmargin-topをつける
+      &:nth-child(n + 3) {
+        margin-top: 19px;
+      }
+    }
+
+    @include mq.mq("sp") {
+      width: calc(50% - 19px * 1 / 2);
+
+      //最初のアイテム要素にはmargin-leftを適用しない
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 19px;
+      }
+
+      //3つめ以降のアイテムに対しmargin-topをつける
+      &:nth-child(n + 3) {
+        margin-top: 19px;
+      }
+    }
+
+    .news__item-img {
+      img {
+        max-height: 125px;
+        object-fit: cover;
+
+        @include mq.mq("sp") {
+          max-height: 99px;
+        }
+      }
+    }
+
+    .news__item-tag {
+      position: absolute;
+      top: 10px;
+      left: -8px;
+
+      .tag-ribbon {
+        font-size: 12px;
+      }
+    }
+
+    .news__item-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 9px;
+      line-height: (24/14);
+
+      @include mq.mq("sp") {
+        font-size: 12px;
+        margin-top: 8px;
+        line-height: (18/12);
+      }
+    }
+
+    .news__item-date {
+      font-size: 12px;
+      margin-top: 10px;
+
+      @include mq.mq("sp") {
+        margin-top: 6px;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use "variables" as var;
+@use "media-query" as mq;
+
+.post-links {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 60px;
+
+  @include mq.mq("sp") {
+    margin-top: 32px;
+    padding: 0;
+  }
+}
+
+.post-link__prev {
+  width: calc(100% - 33.3%);
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  color: var(--color-main);
+
+  @include mq.mq("sp") {
+    font-size: 14px;
+  }
+}
+
+.post-link__next {
+  width: calc(100% - 33.3%);
+  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  color: var(--color-main);
+
+  @include mq.mq("sp") {
+    font-size: 14px;
+  }
+}
+
+.post-link__list {
+  text-align: center;
+  margin-top: 40px;
+}
